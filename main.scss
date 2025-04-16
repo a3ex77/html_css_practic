@@ -1,1 +1,120 @@
+* {
+    box-sizing: border-box;
+}
 
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    line-height: 100%;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.people {
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    gap: 40px 30px;
+
+    padding-top: 30px;
+    padding-bottom: 155px;
+    justify-content: center;
+
+    @media (min-width: 1000px) {
+        grid-template-columns: repeat(4, 200px);
+        padding-bottom: 197px;
+    }
+
+    .person {
+        padding: 10px 10px 46px;
+        margin: -10px -10px -46px;
+
+        transition: transform 1s ease;
+
+        &:hover {
+            transform: scale(1.2);
+            background-color: #EEE;
+            border-radius: 10px;
+            z-index: 1;  
+        }
+
+        &__photo {
+            position: relative;
+        }
+
+        &__img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+
+            transition: border-radius 1s ease;
+        }
+
+        &:hover .person__img {
+            border-radius: 25%;
+          }
+
+        &__rank {
+            position: absolute;
+            top: 42%;
+            right: 5%;  
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 32px;
+            height: 32px;
+            background-color: #fff;
+            border-radius: 50%;
+
+            color: #8B0000;
+            font-size: 16px;
+        }
+
+        &__details {
+            margin-top: 8px;
+        }
+
+        &__name {
+            display: block;
+            font-size: 20px;
+            color: #2F4F4F;
+            text-align: center;
+        }
+
+        &__extra { 
+            position: absolute;
+            opacity: 0; 
+
+            margin-left: -10px;
+            padding-top: 9px;
+            width: 100%;
+
+            color: #000;
+            font-size: 18px;
+            font-weight: 400;
+
+            text-align: center;
+        }
+
+        &:hover .person__extra {
+            opacity: 1;
+        }
+
+        &__sport::after {
+            content: ',';
+        }
+
+        &__pay::before {
+            content: '$';
+        }
+
+        &__pay::after {
+            content: 'M';
+        }
+    }
+}
